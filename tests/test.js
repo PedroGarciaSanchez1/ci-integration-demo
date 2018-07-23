@@ -15,7 +15,6 @@ test('Text typing basics', async t => {
         .expect(page.nameInput.value).eql('Parker');            // Check result
 });
 
-
 test('Click an array of labels and then check their states', async t => {
     for (const feature of page.featureList) {
         await t
@@ -24,7 +23,6 @@ test('Click an array of labels and then check their states', async t => {
     }
 });
 
-
 test('Dealing with text using keyboard', async t => {
     await t
         .typeText(page.nameInput, 'Peter Parker')           // Type name
@@ -32,9 +30,8 @@ test('Dealing with text using keyboard', async t => {
         .pressKey('backspace')                              // Erase a character
         .expect(page.nameInput.value).eql('Pete Parker')    // Check result
         .pressKey('home right . delete delete delete')      // Pick even shorter form for name
-        .expect(page.nameInput.value).eql('P. Parkerx');     // Check result
+        .expect(page.nameInput.value).eql('P. Parker');     // Check result
 });
-
 
 test('Moving the slider', async t => {
     const initialOffset = await page.slider.handle.offsetLeft;
